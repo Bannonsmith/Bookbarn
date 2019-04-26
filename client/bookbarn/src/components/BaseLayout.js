@@ -1,0 +1,45 @@
+import React, {Component} from 'react';
+// import './BaseLayout.css';
+import {BookList} from './BookList'
+import {AddBook} from './AddBook'
+import {Link, NavLink} from 'react-router-dom'
+
+class Menu extends Component {
+
+    render() {
+        return(
+            <ul className="menu">
+            <li><NavLink to="/" className="link">Home</NavLink></li>
+            <li><Link to="/view-all-books">View All Books</Link></li>
+            <li><Link to="/add-book">Add Book</Link></li>
+            </ul>
+
+        );
+    }
+}
+
+
+
+class Footer extends Component {
+
+    render() {
+      return (
+        <div className="footer">Copyright 2019</div>
+      )
+    }
+  
+  }
+
+
+export class BaseLayout extends Component {
+    
+    render() {
+        return( 
+            <div>
+                <Menu />
+                {this.props.children}
+                <Footer />
+            </div>
+        )
+    }
+}
