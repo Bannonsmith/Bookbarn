@@ -16,8 +16,24 @@ let books = [
     }      
 ]
 
+app.post("/api/books", (req,res) => {
 
-app.get('/api/home', (req,res) => {
+    let title = req.body.title
+    let genre = req.body.genre
+    let publisher = req.body.publisher
+    let year = req.body.year
+    let imageURL = req.body.imageURL
+
+    console.log("IT worked")
+    console.log(title)
+    console.log(year)
+
+    books.push({title: title, genre: genre, publisher: publisher, year: year, imageURL: imageURL})
+    res.json({success: true, message: "Sucessfully added a book!"})
+})
+
+
+app.get('/api/books', (req,res) => {
     res.json(books)
 })
 
